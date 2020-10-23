@@ -18,6 +18,7 @@ namespace CaesarCipherTests
         [DataRow(5, "aB9c", "fG9h")]
         [DataRow(5, "-=-*/", "-=-*/")]
         [DataRow(5, "", "")]
+        [DataRow(26, "test", "test")]
         [DataTestMethod]
         public void TestEncrypt(int secretKey, string plainText, string expected)
         {
@@ -39,6 +40,7 @@ namespace CaesarCipherTests
         [DataRow(5, "fG9h", "aB9c")]
         [DataRow(5, "-=-*/", "-=-*/")]
         [DataRow(5, "", "")]
+        [DataRow(26, "test", "test")]
         [DataTestMethod]
         public void TestDecrypt(int secretKey, string cipher, string expected)
         {
