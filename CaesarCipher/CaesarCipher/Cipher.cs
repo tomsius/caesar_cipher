@@ -31,6 +31,12 @@ namespace CaesarCipher
             // shift every letter
             for (int i = 0; i < letters.Length; i++)
             {
+                // ignore if it's not a letter
+                if (!char.IsLetter(letters[i]))
+                {
+                    continue;
+                }
+
                 // take ascii code of letter
                 int letterCode = (int)letters[i];
 
@@ -67,6 +73,12 @@ namespace CaesarCipher
 
             for (int i = 0; i < letters.Length; i++)
             {
+                // ignore if it's not a letter
+                if (!char.IsLetter(letters[i]))
+                {
+                    continue;
+                }
+
                 // take ascii code of letter
                 int letterCode = (int)letters[i];
 
