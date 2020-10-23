@@ -16,6 +16,8 @@ namespace CaesarCipherTests
         [DataRow(5, "abcdefghijklmnopqrstuvwxyz", "fghijklmnopqrstuvwxyzabcde")]
         [DataRow(5, "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "FGHIJKLMNOPQRSTUVWXYZABCDE")]
         [DataRow(5, "aB9c", "fG9h")]
+        [DataRow(5, "-=-*/", "-=-*/")]
+        [DataRow(5, "", "")]
         [DataTestMethod]
         public void TestEncrypt(int secretKey, string plainText, string expected)
         {
@@ -26,6 +28,25 @@ namespace CaesarCipherTests
             Assert.AreEqual(expected, result);
         }
 
+        [DataRow(2, "CDE", "ABC")]
+        [DataRow(2, "cde", "abc")]
+        [DataRow(28, "CDE", "ABC")]
+        [DataRow(28, "cde", "abc")]
+        [DataRow(2, "zAb", "xYz")]
+        [DataRow(2, "ZaB", "XyZ")]
+        [DataRow(5, "fghijklmnopqrstuvwxyzabcde", "abcdefghijklmnopqrstuvwxyz")]
+        [DataRow(5, "FGHIJKLMNOPQRSTUVWXYZABCDE", "ABCDEFGHIJKLMNOPQRSTUVWXYZ")]
+        [DataRow(5, "fG9h", "aB9c")]
+        [DataRow(5, "-=-*/", "-=-*/")]
+        [DataRow(5, "", "")]
+        [DataTestMethod]
+        public void TestDecrypt(int secretKey, string cipher, string expected)
+        {
+            Cipher c = new Cipher(secretKey);
 
+            string result = c.Decrypt(cipher);
+
+            Assert.AreEqual(expected, result);
+        }
     }
 }
