@@ -10,6 +10,13 @@ namespace CaesarCipher
     {
         static void Main(string[] args)
         {
+            // assume that secret key > 0
+            Cipher c = new Cipher(27);
+
+            string plainText = "AbcxyZ";
+            string cipher = c.Encrypt(plainText);
+            string decrypted = c.Decrypt(cipher);
+            Console.WriteLine(plainText + " >>> " + cipher + " >>> " + decrypted);
         }
     }
 }
