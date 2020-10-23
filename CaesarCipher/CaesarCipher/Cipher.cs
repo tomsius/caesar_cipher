@@ -25,6 +25,13 @@ namespace CaesarCipher
 
         public string Encrypt(string plainText)
         {
+            // if secret key is divisible by letter count in alphabet,
+            // then there is no shift
+            if (secretKey == 0)
+            {
+                return plainText;
+            }
+
             // convert plainText to char array
             char[] letters = plainText.ToCharArray();
 
@@ -68,6 +75,13 @@ namespace CaesarCipher
 
         public string Decrypt(string cipher)
         {
+            // if secret key is divisible by letter count in alphabet,
+            // then there is no shift
+            if (secretKey == 0)
+            {
+                return cipher;
+            }
+
             // convert cipher to char array
             char[] letters = cipher.ToCharArray();
 
